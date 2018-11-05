@@ -1,5 +1,20 @@
 "use strict";
 
+// Sekunde 0
+// Sekunde 1
+
+// Sekunde 2
+
+
+
+// Sekunde 3
+
+
+
+
+// Sekunde 4
+
+
 class Renderer {
     constructor(element) {
         this.element = element;
@@ -24,14 +39,17 @@ class Renderer {
 class Box {
     constructor() {
         this.position = 0;
+        this.speed = 0;
     }
 
     runLoop() {
-        this.position+=1;
+        this.speed++;
+        this.position+=this.speed;
     }
 
     moveUp() {
-        this.position-=20;
+        this.speed = -20;
+    //    this.position-=20;
     }
 }
 
@@ -40,6 +58,9 @@ class Game {
         this.element = element;
         this.renderer = new Renderer(element);
         this.box = new Box();
+
+        this.isRunning = true;
+
         this.init();
     }
 
@@ -53,13 +74,28 @@ class Game {
 
         this.renderer.init();
 
-        setInterval(
+        let timer = setInterval(
             () => {
-                this.box.runLoop();
 
-                this.renderer.render(this.box.position);
+                if(this.isRunning) {
+                    this.box.runLoop();
+
+                    if(this.box.position<0) {
+                        console.log("Obere Kante erreicht!");
+                        this.isRunning = false;
+                        clearInterval(timer);
+                    }
+                    
+                    if(this.box.position>this.element.clientHeight-this.renderer.box.clientHeight) {
+                        console.log("Untere Kante erreicht!");
+                        this.isRunning = false;
+                        clearInterval(timer);
+                    }
+
+                    this.renderer.render(this.box.position);
+                }
             }, 
-        10);
+        25);
     
     }
 }
@@ -76,7 +112,3 @@ window.addEventListener("load", function() {
 
 
 });
-
-
-
-
