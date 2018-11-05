@@ -16,8 +16,3 @@ setInterval(f2, 1000);*/
 
 //});
 
-// Enthält Informationen über das zugrundeliegende HTML Dokument (welche Elemente, Adresse, etc)
-document
-
-
-// Enthält Informationen über den Client (z.B. Browserart und Version, ...)

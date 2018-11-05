@@ -1,0 +1,19 @@
+.bmi-ergebnis {
+    border-width: 2px;
+    border-color: black;
+
+    font-size: 20pt;
+
+    float: right;
+}
+
+.bmi-calculator {
+    border-width: 2px;
+    border-color: black;
+    float: left;
+}
+
+.bmi-calculator label {
+    font-size: 20pt;
+}
+
