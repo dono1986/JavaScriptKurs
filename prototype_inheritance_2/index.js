@@ -23,7 +23,9 @@ BankAccount.prototype.getBalance = function() {
         return balance;
 };
 
-/*class BankAccount {
+// ist identisch mit:
+
+class BankAccount {
 
     constructor(balance) {
         this._initialBalance = balance;
@@ -45,8 +47,11 @@ BankAccount.prototype.getBalance = function() {
         }
         return balance;
     }
-}*/
+}
 
+// Verwendung der Klasse wie bei der klassischen Objektorientierung
+
+// Wichtig: new-Operator
 let b = new BankAccount(1100);
 b.withdraw(200);
 b.withdraw(900);
